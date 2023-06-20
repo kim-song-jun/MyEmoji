@@ -15,10 +15,10 @@
 
 <template>
   <div class="Main-Content">
-    <GoogleLogin :callback="callback"></GoogleLogin>
+    <!-- <GoogleLogin :callback="callback"></GoogleLogin> -->
     <RouterView />
   </div>
-  <bottomNav v-if="(this.$route.path = '/')"></bottomNav>
+  <bottomNav v-if="this.$route.path != '/'"></bottomNav>
 </template>
 
 <style scoped>
