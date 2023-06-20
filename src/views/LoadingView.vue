@@ -7,7 +7,7 @@
       />
     </div>
     <!-- <div class="basis-1/12" @click="this.$router.push('/banner')"> -->
-    <div class="basis-1/12" id="sign-up" @click="this.clickHandler">
+    <div class="basis-1/12" id="sign-up" @click="this.signUp()">
       Getting Start
     </div>
   </div>
@@ -24,17 +24,18 @@
     },
     methods: {
       signUp() {
+        this.$router.push("/banner");
         const url =
           "https://accounts.google.com/o/oauth2/auth?client_id=229700534077-dqqd2cqcn8kbrns4gc5egrn0d17o41c8.apps.googleusercontent.com&redirect_uri=http://ec2-3-39-22-13.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email";
 
-        axios
-          .get(url)
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        // axios
+        //   .get(url)
+        //   .then((res) => {
+        //     console.log(res);
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
       },
     },
     mounted() {},

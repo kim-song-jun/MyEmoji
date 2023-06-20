@@ -4,6 +4,7 @@
   >
     <div class="grid h-full max-w-lg grid-cols-3 mx-auto">
       <button
+        @click="this.$router.push('/banner')"
         type="button"
         class="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
       >
@@ -22,7 +23,7 @@
         </svg>
         <span
           class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-          >Latest</span
+          >Home</span
         >
       </button>
       <button
@@ -42,10 +43,11 @@
         </svg>
         <span
           class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-          >Following</span
+          >Start</span
         >
       </button>
       <button
+        @click="this.$router.push('/user')"
         type="button"
         class="inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
       >
@@ -62,7 +64,7 @@
         </svg>
         <span
           class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
-          >Favorites</span
+          >My Page</span
         >
       </button>
     </div>

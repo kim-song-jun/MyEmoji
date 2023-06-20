@@ -1,103 +1,108 @@
-import { createStore } from 'vuex'
-import axios from 'axios';
+import { createStore } from "vuex";
+import axios from "axios";
 
 // Create a new store instance.
 const store = createStore({
-  state () {
+  state() {
     return {
-      requestId :'',
-      currentImageName: 'Input Image',
-      currentImageSrc: '',
-      imgSrc: '',
+      requestId: "",
+      currentImageName: "Input Image",
+      currentImageSrc: "",
+      imgSrc: "",
       tagList: [],
       openModal: false,
       filedata: {},
-      tagID :'result',
-      myImageNumber: '1',
-      first: '',
-      second: '',
-      myTagNumber: '1',
-    }
+      tagID: "result",
+      myImageNumber: "1",
+      first: "",
+      second: "",
+      myTagNumber: "1",
+      showBanner: true,
+    };
   },
   mutations: {
-    setRequestId(state, requestId){
-      state.requestId = requestId
+    setShowBanner(state, showBanner) {
+      state.showBanner = showBanner;
     },
-    setUploadImage(state, uploadImage){
-      state.uploadImage = uploadImage
+    setRequestId(state, requestId) {
+      state.requestId = requestId;
     },
-    setMyTagNumber(state, myTagNumber){
-      state.myTagNumber = myTagNumber
+    setUploadImage(state, uploadImage) {
+      state.uploadImage = uploadImage;
     },
-    setMy(state,first,second){
-      state.first = first
-      state.second = second
+    setMyTagNumber(state, myTagNumber) {
+      state.myTagNumber = myTagNumber;
     },
-    setMyImageNumber(state, myImageNumber){
-      state.myImageNumber = myImageNumber
+    setMy(state, first, second) {
+      state.first = first;
+      state.second = second;
     },
-    setTagID(state, tagID){
-      state.tagID = tagID
+    setMyImageNumber(state, myImageNumber) {
+      state.myImageNumber = myImageNumber;
     },
-    setFileData(state, filedata){
-      state.filedata = filedata
+    setTagID(state, tagID) {
+      state.tagID = tagID;
     },
-    setImgSrc(state, imgSrc){
-      state.imgSrc = imgSrc
+    setFileData(state, filedata) {
+      state.filedata = filedata;
     },
-    setOpenModal(state,current){
+    setImgSrc(state, imgSrc) {
+      state.imgSrc = imgSrc;
+    },
+    setOpenModal(state, current) {
       state.openModal = current;
     },
-    setCurrentImageName(state, imageName){
-      state.currentImageName = imageName
+    setCurrentImageName(state, imageName) {
+      state.currentImageName = imageName;
     },
-    setCurrentImageSrc(state, imageSrc){
-      state.currentImageSrc = imageSrc
+    setCurrentImageSrc(state, imageSrc) {
+      state.currentImageSrc = imageSrc;
     },
-    setTagList(state, tagList){
-      state.tagList = tagList
-    }
+    setTagList(state, tagList) {
+      state.tagList = tagList;
+    },
   },
-  actions:{
-    getTagList(context){
-      axios.get('http://35.78.234.130:8081/demo/tag').then((response) => {
-          context.commit('setTagList', response.data)
-          console.log(response.data)
-          }
-        ).catch((error) => {
-          console.log(error)
-          }
-        ) 
-      },
-    async postImageUpload(context){
-        const formData = {
-          imgFile : context.state.filedata,
-          // userId : '1'
-        }
-        const frm = Object.entries(formData).reduce((acc, [key, value]) => {
-          acc.append(key, value);
-          return acc;
-        }, new FormData());
-        try{
-          const response = await axios.post(
-            'http://3.39.22.13:8080/image/upload',
-            frm
-          )
-          console.log(response.data)
-          context.commit('setRequestId', response.data)
-          return true
-        } catch(error){ 
-          console.log(error)
-          return false
-        }
-      },
-      async getTagStatus(context){
-        const response = await axios.get(`http://3.39.22.13:8080/tag/status/${context.state.requestId}`)
-        return response.data
+  actions: {
+    getTagList(context) {
+      axios
+        .get("http://35.78.234.130:8081/demo/tag")
+        .then((response) => {
+          context.commit("setTagList", response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    async postImageUpload(context) {
+      const formData = {
+        imgFile: context.state.filedata,
+        // userId : '1'
+      };
+      const frm = Object.entries(formData).reduce((acc, [key, value]) => {
+        acc.append(key, value);
+        return acc;
+      }, new FormData());
+      try {
+        const response = await axios.post(
+          "http://3.39.22.13:8080/image/upload",
+          frm
+        );
+        console.log(response.data);
+        context.commit("setRequestId", response.data);
+        return true;
+      } catch (error) {
+        console.log(error);
+        return false;
       }
-    }
-  }
-)
+    },
+    async getTagStatus(context) {
+      const response = await axios.get(
+        `http://3.39.22.13:8080/tag/status/${context.state.requestId}`
+      );
+      return response.data;
+    },
+  },
+});
 
-
-export default store
+export default store;
