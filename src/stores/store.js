@@ -5,22 +5,61 @@ import axios from "axios";
 const store = createStore({
   state() {
     return {
+      ACCESSTOKEN: "",
+      USERID: "",
       requestId: "",
+      emojiRequestId: "",
+
       currentImageName: "Input Image",
       currentImageSrc: "",
       imgSrc: "",
-      tagList: [],
+
       openModal: false,
       filedata: {},
       tagID: "result",
       myImageNumber: "1",
-      first: "",
-      second: "",
+      first: "smile",
+      second: 1,
       myTagNumber: "1",
       showBanner: true,
+      loading: false,
+      loadingStatus: {
+        progress: 0,
+        status: "tag",
+      },
+      tagList: [],
+      emojiList: [],
+      tagName: "",
     };
   },
   mutations: {
+    setTagName(state, tagName) {
+      state.tagName = tagName;
+    },
+    setEmojiRequestId(state, emojiRequestId) {
+      state.emojiRequestId = emojiRequestId;
+    },
+    initLoadingStatus(state) {
+      state.loadingStatus = {
+        progress: 0,
+        status: "tag",
+      };
+    },
+    setEmojiList(state, emojiList) {
+      state.emojiList = emojiList;
+    },
+    setLoadingStatus(state, loadingStatus) {
+      state.loadingStatus = loadingStatus;
+    },
+    setLoading(state, loading) {
+      state.loading = loading;
+    },
+    setAccessToken(state, ACCESSTOKEN) {
+      state.ACCESSTOKEN = ACCESSTOKEN;
+    },
+    setUserId(state, USERID) {
+      state.USERID = USERID;
+    },
     setShowBanner(state, showBanner) {
       state.showBanner = showBanner;
     },
@@ -33,7 +72,7 @@ const store = createStore({
     setMyTagNumber(state, myTagNumber) {
       state.myTagNumber = myTagNumber;
     },
-    setMy(state, first, second) {
+    setMy(state, first) {
       state.first = first;
       state.second = second;
     },
@@ -76,6 +115,7 @@ const store = createStore({
     },
     async postImageUpload(context) {
       const formData = {
+        userId: context.state.USERID,
         imgFile: context.state.filedata,
         // userId : '1'
       };
@@ -86,7 +126,12 @@ const store = createStore({
       try {
         const response = await axios.post(
           "http://3.39.22.13:8080/image/upload",
-          frm
+          frm,
+          {
+            headers: {
+              "Google-AccessToken-Header": context.state.ACCESSTOKEN,
+            },
+          }
         );
         console.log(response.data);
         context.commit("setRequestId", response.data);

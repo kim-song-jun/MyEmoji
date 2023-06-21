@@ -23,31 +23,32 @@
       <p
         class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400"
       >
-        Build websites even faster with components on top of Tailwind CSS
+        이미지가 서버에서 처리되고 있어요. 잠시 기다려주세요.
       </p>
     </div>
     <div class="flex justify-center items-center gap-4 mb-3">
       <img
-        class="rounded-lg w-24 h-24"
-        src="/images/profile/yukmaro.jpeg"
+        class="rounded-lg w-32 h-42"
+        :src="this.orign_url"
         alt="profile picture"
       />
       <div>to</div>
-      <img
-        class="rounded-lg w-24 h-24"
-        src="/images/profile/yukmaro.jpeg"
-        alt="profile picture"
-      />
+      <img class="rounded-lg w-32 h-42" :src="this.url" alt="profile picture" />
     </div>
 
     <div class="flex justify-between mb-1">
       <span class="text-base font-medium text-blue-700 dark:text-white"
-        >Flowbite</span
+        >{{ this.$store.state.loadingStatus.status }} Loading...</span
       >
-      <span class="text-sm font-medium text-blue-700 dark:text-white">45%</span>
+      <span class="text-sm font-medium text-blue-700 dark:text-white"
+        >{{ this.$store.state.loadingStatus.progress }}%</span
+      >
     </div>
     <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-      <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+      <div
+        class="bg-blue-600 h-2.5 rounded-full"
+        :style="{ width: `${this.$store.state.loadingStatus.progress}%` }"
+      ></div>
     </div>
 
     <div class="flex items-center flex-shrink-0">
@@ -75,7 +76,49 @@
 </template>
 
 <script>
-  export default {};
+  export default {
+    data() {
+      return {
+        url: "/images/example/exam_gogh.png",
+        orign_url: "/images/example/exam_origin.png",
+        step: 0,
+        tag: ["gogh", "sketch", "cartoon"],
+        emoji: ["smile", "sad", "angry"],
+      };
+    },
+    mounted() {
+      this.setLoop();
+    },
+    methods: {
+      setImageByStatus(status) {
+        if (status == "tag") {
+          return "";
+        }
+        if (status == "emoji") {
+          return "";
+        }
+      },
+      setLoop() {
+        const repeat = setInterval(() => {
+          if (this.$store.state.loadingStatus.status == "tag") {
+            this.orign_url = "/images/example/exam_origin.png";
+            this.url = `/images/example/exam_${this.tag[this.step % 3]}.png`;
+          } else {
+            this.orign_url = `/images/example/exam_emoji_${
+              this.tag[this.step % 3]
+            }.png`;
+            this.url = `/images/example/exam_emoji_${this.tag[this.step % 3]}_${
+              this.emoji[this.step % 3]
+            }.png`;
+          }
+          this.step++;
+          if (!this.$store.state.loading) {
+            clearInterval(repeat);
+          }
+        }, 2000);
+      },
+    },
+  };
 </script>
 
 <style></style>

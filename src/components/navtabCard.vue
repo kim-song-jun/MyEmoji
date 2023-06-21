@@ -91,9 +91,9 @@
         aria-labelledby="services-tab"
       >
         <h2
-          class="mb-5 text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white"
+          class="mb-5 text-3xl text-center font-extrabold tracking-tight text-gray-900 dark:text-white"
         >
-          Make your own Emoji !
+          나만의 이모티콘 만들기
         </h2>
         <!-- List -->
         <ul role="list" class="space-y-4 text-gray-500 dark:text-gray-400">
@@ -101,8 +101,8 @@
             <div class="grid gap-4">
               <div>
                 <img
-                  class="h-auto max-w-full rounded-lg"
-                  src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
+                  class="h-auto w-full rounded-lg"
+                  src="/images/example/banner/exam_emoji_cartoon_angry_gif_out.gif"
                   alt=""
                 />
               </div>
@@ -110,21 +110,21 @@
                 <div>
                   <img
                     class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+                    src="/images/example/banner/exam_emoji_origin.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <img
                     class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+                    src="/images/example/banner/exam_emoji_cartoon.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <img
                     class="h-auto max-w-full rounded-lg"
-                    src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+                    src="/images/example/banner/exam_emoji_cartoon_angry.png"
                     alt=""
                   />
                 </div>
@@ -204,6 +204,7 @@
           <button
             type="button"
             class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            @click="this.$router.push('/home')"
           >
             Getting Start &nbsp;
             <svg

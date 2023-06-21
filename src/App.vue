@@ -17,7 +17,7 @@
 
 <template>
   <ProfileModal></ProfileModal>
-  <ProgressBanner v-if="this.$store.state.showBanner"></ProgressBanner>
+  <ProgressBanner v-if="this.$store.state.loading"></ProgressBanner>
   <div class="Main-Content">
     <!-- <GoogleLogin :callback="callback"></GoogleLogin> -->
     <RouterView />

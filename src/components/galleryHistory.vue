@@ -5,105 +5,31 @@
       <button
         type="button"
         class="text-blue-700 hover:text-white bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"
+        @click="getUserHistory()"
       >
         All
       </button>
       <button
         type="button"
         class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800"
+        @click="showImg()"
       >
-        Shoes
+        Img
       </button>
       <button
         type="button"
         class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800"
+        @click="showGif()"
       >
-        Shoes
+        Gif
       </button>
     </div>
     <div class="grid grid-cols-3 md:grid-cols-3 gap-4">
       <!-- <div class="grid grid-cols-2 md:grid-cols-3 gap-4 px-4"> -->
-      <div>
+      <div v-for="(item, index) in this.temp" :key="index">
         <img
           class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
+          :src="`http://${item}`"
           alt=""
         />
       </div>
@@ -112,7 +38,65 @@
 </template>
 
 <script>
-  export default {};
+  import axios from "axios";
+
+  export default {
+    data() {
+      return {
+        history: [],
+        temp: [],
+      };
+    },
+
+    methods: {
+      showImg() {
+        this.temp = this.history.filter((item) => {
+          if (item.includes("Img")) {
+            return item;
+          }
+        });
+      },
+      showGif() {
+        this.temp = this.history.filter((item) => {
+          if (item.includes("Gif")) {
+            return item;
+          }
+        });
+      },
+      showAll() {
+        this.temp = [...this.history];
+      },
+      async getUserHistory() {
+        const formData = {
+          userId: this.$store.state.USERID,
+        };
+        const frm = Object.entries(formData).reduce((acc, [key, value]) => {
+          acc.append(key, value);
+          return acc;
+        }, new FormData());
+        const response = await axios.post(
+          "http://3.39.22.13:8080/user/history",
+          frm,
+          {
+            headers: {
+              "Google-AccessToken-Header": this.$store.state.ACCESSTOKEN,
+            },
+          }
+        );
+        const temp = response.data;
+        this.history = temp.filter((item) => {
+          if (!item.includes("http")) {
+            return item;
+          }
+        });
+        this.temp = [...this.history];
+        // console.log(this.history);
+      },
+    },
+    mounted() {
+      this.getUserHistory();
+    },
+  };
 </script>
 
 <style></style>

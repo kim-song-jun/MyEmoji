@@ -5,24 +5,54 @@
     <div class="flex flex-col items-center py-6">
       <img
         class="w-24 h-24 mb-3 rounded-full shadow-lg"
-        src="/images/banner2.png"
+        :src="this.userInfo.picture"
         alt="Bonnie image"
       />
       <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-        SIX MARO
+        {{ this.userInfo.nickName }}
       </h5>
-      <span class="text-sm text-gray-600 dark:text-gray-400"
-        >Project Manager</span
-      >
-      <span class="text-sm text-gray-400 dark:text-gray-400"
-        >DayTime work Needed.</span
-      >
+      <span class="text-sm text-gray-600 dark:text-gray-400">User</span>
+      <span class="text-sm text-gray-400 dark:text-gray-400">{{
+        this.userInfo.email
+      }}</span>
     </div>
   </div>
 </template>
 
 <script>
-  export default {};
+  import axios from "axios";
+  export default {
+    data() {
+      return {
+        userInfo: {},
+      };
+    },
+    methods: {
+      async getUserInfo() {
+        const formData = {
+          userId: this.$store.state.USERID,
+        };
+        const frm = Object.entries(formData).reduce((acc, [key, value]) => {
+          acc.append(key, value);
+          return acc;
+        }, new FormData());
+        const response = await axios.post(
+          "http://3.39.22.13:8080/user/info",
+          frm,
+          {
+            headers: {
+              "Google-AccessToken-Header": this.$store.state.ACCESSTOKEN,
+            },
+          }
+        );
+        this.userInfo = response.data;
+        console.log(this.userInfo);
+      },
+    },
+    mounted() {
+      this.getUserInfo();
+    },
+  };
 </script>
 
 <style></style>
