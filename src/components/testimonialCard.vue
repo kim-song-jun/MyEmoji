@@ -64,7 +64,7 @@
         </div>
       </figcaption>
     </figure>
-    <figure
+    <!-- <figure
       class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-bl-lg md:border-b-0 md:border-r dark:bg-gray-800 dark:border-gray-700"
     >
       <blockquote
@@ -119,7 +119,7 @@
           </div>
         </div>
       </figcaption>
-    </figure>
+    </figure> -->
   </div>
 </template>
 
