@@ -3,6 +3,8 @@
   import { initFlowbite } from "flowbite";
   import bottomNav from "./components/bottomNav.vue";
   import ProgressBanner from "./components/progressBanner.vue";
+  import ProfileModal from "./components/profileModal.vue";
+
   // initialize components based on data attribute selectors
   onMounted(() => {
     initFlowbite();
@@ -15,6 +17,7 @@
 </script>
 
 <template>
+  <ProfileModal></ProfileModal>
   
   <ProgressBanner v-if="this.$store.state.loading"></ProgressBanner>
     <!-- <GoogleLogin :callback="callback"></GoogleLogin> -->

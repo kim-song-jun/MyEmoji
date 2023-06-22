@@ -2,6 +2,7 @@
   <!-- Main modal -->
   <div
     id="defaultModal"
+    data-modal-target="defaultModal"
     tabindex="-1"
     aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
@@ -39,16 +40,16 @@
         </div>
         <!-- Modal body -->
         <div class="p-6 space-y-6">
-          <div class="flex flex-row justify-center items-center">
-          <img src="../assets/images/Emoji_Logo.png" class="w-14 mt-2" />
-        </div>
+ 
+        <div class="flex flex-col bg-gray-100  justify-center items-center h-32 mx-8">
           <img
-          class="bg-gray-100 mx-8 h-48 mt-2 justify-center"
+          class="h-32"
           :src="this.url"
           @error="errorImage"
         />
+        </div>
           <div
-          class="flex flex-col bg-gray-100 mx-8 h-48 mt-2 justify-center items-center"
+          class="flex flex-col bg-gray-100 mx-8 h-32 mt-2 justify-center items-center"
         >
           <canvas id="qrcode-canvas"></canvas>
         </div>
@@ -95,13 +96,14 @@
         console.log(event)
         event.target.src = gif
         this.generateQRCode('/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif')
+        this.url = '/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif'
       },
       async downloadImage(imageUrl) {
         try {
           const response = await axios.get(imageUrl, {
             responseType: "blob",
             headers: {
-              "Content-Type": "image/jpeg",
+              "Content-Type": "image/jpeg",       
             },
           });
           const blob = new Blob([response.data]);
@@ -120,7 +122,7 @@
       async generateQRCode(url) {
         try {
           const canvas = document.getElementById("qrcode-canvas");
-          await QRCode.toCanvas(canvas, url, { width: 200 });
+          await QRCode.toCanvas(canvas, url, { width: 150 });
         } catch (error) {
           console.log("Error in generateQRCode", error);
         }

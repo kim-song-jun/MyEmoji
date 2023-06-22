@@ -64,12 +64,10 @@
     >
       SELECT
     </button>
-    <ProfileModal></ProfileModal>
   </div>
 </template>
 
 <script>
-  import ProfileModal from "../components/profileModal.vue";
 
   import imageIcon from "../components/icons/imageIcon.vue";
   import TopMenu from "../components/topMenu.vue";
@@ -77,7 +75,6 @@
     components: {
       imageIcon,
       TopMenu,
-      ProfileModal,
     },
     data() {
       return {
