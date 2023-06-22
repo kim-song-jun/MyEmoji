@@ -1,5 +1,4 @@
 <template>
-
   <div class="flex flex-col justify-center">
     <!-- top menu -->
     <TopMenu></TopMenu>
@@ -68,7 +67,6 @@
 </template>
 
 <script>
-
   import imageIcon from "../components/icons/imageIcon.vue";
   import TopMenu from "../components/topMenu.vue";
   export default {

@@ -40,19 +40,16 @@
         </div>
         <!-- Modal body -->
         <div class="p-6 space-y-6">
- 
-        <div class="flex flex-col bg-gray-100  justify-center items-center h-32 mx-8">
-          <img
-          class="h-32"
-          :src="this.url"
-          @error="errorImage"
-        />
-        </div>
           <div
-          class="flex flex-col bg-gray-100 mx-8 h-32 mt-2 justify-center items-center"
-        >
-          <canvas id="qrcode-canvas"></canvas>
-        </div>
+            class="flex flex-col bg-gray-100 justify-center items-center h-32 mx-8"
+          >
+            <img class="h-32" :src="this.url" @error="errorImage" />
+          </div>
+          <div
+            class="flex flex-col bg-gray-100 mx-8 h-32 mt-2 justify-center items-center"
+          >
+            <canvas id="qrcode-canvas"></canvas>
+          </div>
         </div>
         <!-- Modal footer -->
         <div
@@ -81,7 +78,7 @@
 <script>
   import axios from "axios";
   import QRCode from "qrcode";
-  import gif from '../assets/images/exam_emoji_cartoon_angry_gif_out.gif'
+  import gif from "../assets/images/exam_emoji_cartoon_angry_gif_out.gif";
 
   export default {
     data() {
@@ -91,19 +88,21 @@
         url: "",
       };
     },
-    methods:{
+    methods: {
       errorImage(event) {
-        console.log(event)
-        event.target.src = gif
-        this.generateQRCode('/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif')
-        this.url = '/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif'
+        console.log(event);
+        event.target.src = gif;
+        this.generateQRCode(
+          "/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif"
+        );
+        this.url = "/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif";
       },
       async downloadImage(imageUrl) {
         try {
           const response = await axios.get(imageUrl, {
             responseType: "blob",
             headers: {
-              "Content-Type": "image/jpeg",       
+              "Content-Type": "image/jpeg",
             },
           });
           const blob = new Blob([response.data]);
