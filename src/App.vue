@@ -18,10 +18,10 @@
 
 <template>
   <ProfileModal></ProfileModal>
-  
+
   <ProgressBanner v-if="this.$store.state.loading"></ProgressBanner>
-    <!-- <GoogleLogin :callback="callback"></GoogleLogin> -->
-    <RouterView />
+  <!-- <GoogleLogin :callback="callback"></GoogleLogin> -->
+  <RouterView />
   <bottomNav v-if="this.$route.path != '/'"></bottomNav>
 </template>
 
