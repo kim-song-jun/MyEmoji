@@ -1,8 +1,4 @@
 <template>
-  <ResultModal
-    v-if="this.$store.state.openModal"
-    :second="this.second"
-  ></ResultModal>
 
   <div class="flex flex-col justify-center">
     <!-- top menu -->
@@ -61,24 +57,27 @@
     </div>
 
     <!-- next button -->
-    <div
-      @click="clickHandler"
+    <button
+      data-modal-target="defaultModal"
+      data-modal-toggle="defaultModal"
       class="flex flex-row mx-8 font-bold text-2xl items-center justify-center h-16 bg-orange-300 text-white mt-12 mb-4 rounded-md cursor-pointer"
     >
       SELECT
-    </div>
+    </button>
+    <ProfileModal></ProfileModal>
   </div>
 </template>
 
 <script>
+  import ProfileModal from "../components/profileModal.vue";
+
   import imageIcon from "../components/icons/imageIcon.vue";
-  import ResultModal from "../components/resultModal.vue";
   import TopMenu from "../components/topMenu.vue";
   export default {
     components: {
       imageIcon,
       TopMenu,
-      ResultModal,
+      ProfileModal,
     },
     data() {
       return {
@@ -97,7 +96,8 @@
         this.second = s;
         console.log(f);
         console.log(s);
-        this.$store.commit("setMy", f, s);
+        this.$store.commit("setFirst", f);
+        this.$store.commit("setSecond", s);
         console.log(this.$store.state.first);
       },
     },

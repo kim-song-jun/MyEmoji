@@ -1,42 +1,40 @@
 <template>
-  <div class="absolute bg-black bg-opacity-60 w-full h-screen flex flex-col">
-    <div
-      class="flex flex-row px-4 text-gray-400 mt-40 justify-between gap-4 h-96 items-center"
-    >
-      <div class="h-full flex flex-col justify-center">
-        <leftIcon></leftIcon>
-      </div>
-      <div class="h-full w-80 flex flex-row justify-center">
-        <div class="bg-white w-full rounded-xl flex flex-col">
-          <div class="ml-72 mt-5">
-            <DeleteIcon
-              @click="this.$store.commit('setOpenModal', false)"
-            ></DeleteIcon>
-          </div>
-          <div class="flex flex-row justify-center items-center">
-            <img src="../assets/images/Emoji_Logo.png" class="w-14 mt-2" />
-          </div>
-          <div class="flex flex-row px-8 mt-4 items-center gap-2">
-            <ImageIcon></ImageIcon>
-            <div>{{ this.$store.state.currentImageName ?? "" }}</div>
-          </div>
-          <div
-            class="flex flex-col bg-gray-100 mx-8 h-48 mt-2 justify-center items-center"
-          >
-            <canvas id="qrcode-canvas"></canvas>
-          </div>
-          <!-- <div class="flex flex-col bg-gray-100 mx-8 h-32 mt-3"></div> -->
-          <div
-            class="flex flex-row mx-8 font-bold text-xl items-center justify-center h-10 bg-orange-300 text-white mt-6 mb-4 rounded-md cursor-pointer"
-            @click="downloadImage(this.url)"
-          >
-            DOWNLOAD
-          </div>
+  <div
+    class="flex flex-row px-4 text-gray-400 mt-40 justify-between gap-4 h-96 items-center absolute z-10"
+  >
+    <div class="h-full flex flex-col justify-center">
+      <leftIcon></leftIcon>
+    </div>
+    <div class="h-auto w-80 flex flex-row justify-center">
+      <div class="bg-white w-full rounded-xl flex flex-col">
+        <div class="ml-72 mt-5">
+          <DeleteIcon
+            @click="this.$store.commit('setOpenModal', false)"
+          ></DeleteIcon>
+        </div>
+        <div class="flex flex-row justify-center items-center">
+          <img src="../assets/images/Emoji_Logo.png" class="w-14 mt-2" />
+        </div>
+        <div class="flex flex-row px-8 mt-4 items-center gap-2">
+          <ImageIcon></ImageIcon>
+          <div>{{ this.$store.state.currentImageName ?? "" }}</div>
+        </div>
+        <div
+          class="flex flex-col bg-gray-100 mx-8 h-48 mt-2 justify-center items-center"
+        >
+          <canvas id="qrcode-canvas"></canvas>
+        </div>
+        <!-- <div class="flex flex-col bg-gray-100 mx-8 h-32 mt-3"></div> -->
+        <div
+          class="flex flex-row mx-8 font-bold text-xl items-center justify-center h-10 bg-orange-300 text-white mt-6 mb-4 rounded-md cursor-pointer"
+          @click="downloadImage(this.url)"
+        >
+          DOWNLOAD
         </div>
       </div>
-      <div class="h-full flex flex-col justify-center">
-        <rightIcon></rightIcon>
-      </div>
+    </div>
+    <div class="h-full flex flex-col justify-center">
+      <rightIcon></rightIcon>
     </div>
   </div>
 </template>

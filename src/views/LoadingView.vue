@@ -1,14 +1,16 @@
 <template>
-  <div class="flex flex-col justify-center items-center h-full">
-    <div class="flex basis-10/12 justify-center items-center">
-      <img
-        src="../assets/images/Emoji_Logo.png"
-        style="width: 150px; height: 150px"
-      />
-    </div>
-    <!-- <div class="basis-1/12" @click="this.$router.push('/banner')"> -->
-    <div class="basis-1/12" id="sign-up" @click="this.signUp()">
-      Getting Start
+  <div class="Main-Content">
+    <div class="flex flex-col justify-center items-center h-full">
+      <div class="flex basis-10/12 justify-center items-center">
+        <img
+          src="../assets/images/Emoji_Logo.png"
+          style="width: 150px; height: 150px"
+        />
+      </div>
+      <!-- <div class="basis-1/12" @click="this.$router.push('/banner')"> -->
+      <div class="basis-1/12" id="sign-up" @click="this.signUp()">
+        Getting Start
+      </div>
     </div>
   </div>
 </template>
@@ -33,3 +35,10 @@
     mounted() {},
   };
 </script>
+<style>
+  .Main-Content {
+    width: 390px;
+    height: 844px;
+    /* background-color: rgb(239, 239, 223); */
+    overflow: auto;
+  }</style>

@@ -72,8 +72,10 @@ const store = createStore({
     setMyTagNumber(state, myTagNumber) {
       state.myTagNumber = myTagNumber;
     },
-    setMy(state, first) {
+    setFirst(state, first) {
       state.first = first;
+    },
+    setSecond(state, second) {
       state.second = second;
     },
     setMyImageNumber(state, myImageNumber) {

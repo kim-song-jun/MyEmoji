@@ -18,7 +18,7 @@
           aria-selected="false"
           class="inline-block p-4 text-blue-600 rounded-tl-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500"
         >
-          About
+          프로젝트 소개
         </button>
       </li>
       <li class="mr-4">
@@ -31,7 +31,7 @@
           aria-selected="true"
           class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300"
         >
-          Services
+          이모지 만들기
         </button>
       </li>
       <li class="mr-4">
@@ -44,7 +44,7 @@
           aria-selected="false"
           class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300"
         >
-          Future
+          업데이트
         </button>
       </li>
     </ul>
@@ -58,18 +58,16 @@
         <h2
           class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white"
         >
-          A web app that takes pictures and generates various emoji
+          사용자의 사진을 통해 다양한 이모티콘 만들기!
         </h2>
         <p class="mb-3 text-gray-500 dark:text-gray-400">
-          Get the file in jpg and png format AI pipeline including pre- and
-          post-processing of images Pass through to provide a custom gif to the
-          user
+          프로젝트는 사용자의 사진을 입력받아 여러가지 이모티콘을 생성해주는 웹앱입니다. jpg, png 형식의 파일을 입력받아 이미지의 전처리, 후처리를 포함한 AI 파이프라인을 통과시켜 사용자에게 맞춤형 gif를 제공하는 것을 목표하고 있습니다.
         </p>
         <a
           href="https://docs.google.com/presentation/d/1acuZfNtBWpVujeP6HmmH1w_68qRiJjKCEQcSLF6DrXU/edit#slide=id.p"
           class="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700"
         >
-          Learn more
+          더 알아보기
           <svg
             class="w-6 h-6 ml-1"
             fill="currentColor"
@@ -230,20 +228,35 @@
         role="tabpanel"
         aria-labelledby="statistics-tab"
       >
-        <dl
-          class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-6 dark:text-white sm:p-8"
+      <button
+          class="mb-5 text-3xl text-center font-extrabold tracking-tight text-gray-900 dark:text-white"
         >
-          <div class="flex flex-col">
-            <dt class="mb-2 text-3xl font-extrabold">73M+</dt>
-            <dd class="text-gray-500 dark:text-gray-400">Developers</dd>
+        Drag GAN : 포인트 조작을 통한 이미지 생성 / 변경
+        </button>
+        <img
+            class="h-auto w-full rounded-lg mb-4"
+            src="/images/example/drag/DragGAN.gif"
+            alt=""
+                />
+        <div
+          class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-700 sm:grid-cols-2 xl:grid-cols-6 dark:text-white sm:p-8"
+        >
+          <div class="flex flex-col text-center">
+            <dt class="mb-2 text-3xl font-extrabold">16.4K+</dt>
+            <dd class="text-gray-500 dark:text-gray-400">Github Stars</dd>
           </div>
-          <div class="flex flex-col">
-            <dt class="mb-2 text-3xl font-extrabold">100M+</dt>
+          <div class="flex flex-col text-center">
+            <dt class="mb-2 text-3xl font-extrabold">1K+</dt>
             <dd class="text-gray-500 dark:text-gray-400">
-              Public repositories
+              Github forks
             </dd>
           </div>
-        </dl>
+        </div>
+        <h2
+          class="my-4 text-2xl text-center font-extrabold tracking-tight text-blue-600 dark:text-white"
+        >
+        8월 추가 예정!
+        </h2>
       </div>
     </div>
   </div>
