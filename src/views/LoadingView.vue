@@ -27,8 +27,7 @@
     methods: {
       signUp() {
         const url =
-          "https://accounts.google.com/o/oauth2/auth?client_id=229700534077-dqqd2cqcn8kbrns4gc5egrn0d17o41c8.apps.googleusercontent.com&redirect_uri=http://ec2-3-39-22-199.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email";
-
+          "https://accounts.google.com/o/oauth2/auth?client_id=229700534077-ha2l7ee5fnpp7jv4tinbsd40dqij7qe8.apps.googleusercontent.com&redirect_uri=http://ec2-3-34-178-125.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
         window.location.href = url;
       },
     },

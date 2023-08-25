@@ -34,7 +34,7 @@
             v-for="(item2, key) in 3"
             :key="key"
             :style="{
-              backgroundImage: `url('http://13.114.204.13:8000/showImg/${this.$store.state.requestId}/${item}/${item2}')`,
+              backgroundImage: `url('http://219.250.128.100:8000/showImg/${this.$store.state.requestId}/${item}/${item2}')`,
             }"
             @click="clickHander(item, item2)"
           ></div>
@@ -88,7 +88,7 @@
         this.$store.commit("setLoading", true);
         try {
           const result = await axios.get(
-            `http://3.39.22.199:8080/tag/select/${this.$store.state.USERID}/${this.$store.state.requestId}/${this.myCurrentTag}/${this.myCurrentTagNum}`
+            `http://3.34.178.125:8080/tag/select/${this.$store.state.USERID}/${this.$store.state.requestId}/${this.myCurrentTag}/${this.myCurrentTagNum}`
           );
           console.log(result);
           this.$store.commit("setEmojiRequestId", result.data);
@@ -105,7 +105,7 @@
         const repeat = setInterval(async () => {
           try {
             const response = await axios.get(
-              `http://3.39.22.199:8080/emoji/status/${this.$store.state.emojiRequestId}`
+              `http://3.34.178.125:8080/emoji/status/${this.$store.state.emojiRequestId}`
             );
             console.log(response.data);
             this.$store.commit("setLoadingStatus", {

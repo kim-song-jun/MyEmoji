@@ -23,7 +23,7 @@
       <div
         class="w-1/2 h-40 bg-gray-50 bg-contain bg-no-repeat bg-center"
         :style="{
-          backgroundImage: `url('http://13.114.204.13:8000/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.first}/${this.second}')`,
+          backgroundImage: `url('http://219.250.128.100:8000/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.first}/${this.second}')`,
         }"
       ></div>
     </div>
@@ -47,7 +47,7 @@
             v-for="(item2, key2) in 6"
             :key="key2"
             :style="{
-              backgroundImage: `url('http://13.114.204.13:8000/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.emojiList[key2]}/${item}')`,
+              backgroundImage: `url('http://219.250.128.100:8000/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.emojiList[key2]}/${item}')`,
             }"
             @click="selectMyEmoji(this.emojiList[key2], item)"
           ></div>

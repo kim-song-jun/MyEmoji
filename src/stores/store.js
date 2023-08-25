@@ -127,7 +127,7 @@ const store = createStore({
       }, new FormData());
       try {
         const response = await axios.post(
-          "http://3.39.22.199:8080/image/upload",
+          "http://3.34.178.125:8080/image/upload",
           frm,
           {
             headers: {
@@ -145,7 +145,7 @@ const store = createStore({
     },
     async getTagStatus(context) {
       const response = await axios.get(
-        `http://3.39.22.199:8080/tag/status/${context.state.requestId}`
+        `http://3.34.178.125:8080/tag/status/${context.state.requestId}`
       );
       return response.data;
     },

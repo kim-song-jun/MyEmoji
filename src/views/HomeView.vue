@@ -121,7 +121,7 @@
         const repeat = setInterval(async () => {
           try {
             const response = await axios.get(
-              `http://3.39.22.199:8080/tag/status/${this.$store.state.requestId}`
+              `http://3.34.178.125:8080/tag/status/${this.$store.state.requestId}`
             );
             this.$store.commit("setLoadingStatus", {
               progress: response.data.wait,

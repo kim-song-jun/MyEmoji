@@ -37,7 +37,7 @@
           return acc;
         }, new FormData());
         const response = await axios.post(
-          "http://3.39.22.199:8080/user/info",
+          "http://3.34.178.125:8080/user/info",
           frm,
           {
             headers: {
