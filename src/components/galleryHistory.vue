@@ -75,7 +75,7 @@
           return acc;
         }, new FormData());
         const response = await axios.post(
-          "http://3.34.178.125:8080/user/history",
+          `${this.$store.state.JAVA_API_URL}/user/history`,
           frm,
           {
             headers: {

@@ -128,7 +128,7 @@
       },
     },
     mounted() {
-      this.url = `http://13.114.204.13:8000/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.$store.state.first}/${this.$store.state.second}`;
+      this.url = `${this.$store.state.PYTHON_API_URL}/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.$store.state.first}/${this.$store.state.second}`;
       this.generateQRCode(this.url);
     },
   };

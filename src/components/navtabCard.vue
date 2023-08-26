@@ -61,7 +61,10 @@
           사용자의 사진을 통해 다양한 이모티콘 만들기!
         </h2>
         <p class="mb-3 text-gray-500 dark:text-gray-400">
-          프로젝트는 사용자의 사진을 입력받아 여러가지 이모티콘을 생성해주는 웹앱입니다. jpg, png 형식의 파일을 입력받아 이미지의 전처리, 후처리를 포함한 AI 파이프라인을 통과시켜 사용자에게 맞춤형 gif를 제공하는 것을 목표하고 있습니다.
+          프로젝트는 사용자의 사진을 입력받아 여러가지 이모티콘을 생성해주는
+          웹앱입니다. jpg, png 형식의 파일을 입력받아 이미지의 전처리, 후처리를
+          포함한 AI 파이프라인을 통과시켜 사용자에게 맞춤형 gif를 제공하는 것을
+          목표하고 있습니다.
         </p>
         <a
           href="https://docs.google.com/presentation/d/1acuZfNtBWpVujeP6HmmH1w_68qRiJjKCEQcSLF6DrXU/edit#slide=id.p"
@@ -228,16 +231,16 @@
         role="tabpanel"
         aria-labelledby="statistics-tab"
       >
-      <button
+        <button
           class="mb-5 text-3xl text-center font-extrabold tracking-tight text-gray-900 dark:text-white"
         >
-        Drag GAN : 포인트 조작을 통한 이미지 생성 / 변경
+          Drag GAN : 포인트 조작을 통한 이미지 생성 / 변경
         </button>
         <img
-            class="h-auto w-full rounded-lg mb-4"
-            src="/images/example/drag/DragGAN.gif"
-            alt=""
-                />
+          class="h-auto w-full rounded-lg mb-4"
+          src="/images/example/drag/DragGAN.gif"
+          alt=""
+        />
         <div
           class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-700 sm:grid-cols-2 xl:grid-cols-6 dark:text-white sm:p-8"
         >
@@ -247,15 +250,13 @@
           </div>
           <div class="flex flex-col text-center">
             <dt class="mb-2 text-3xl font-extrabold">1K+</dt>
-            <dd class="text-gray-500 dark:text-gray-400">
-              Github forks
-            </dd>
+            <dd class="text-gray-500 dark:text-gray-400">Github forks</dd>
           </div>
         </div>
         <h2
           class="my-4 text-2xl text-center font-extrabold tracking-tight text-blue-600 dark:text-white"
         >
-        8월 추가 예정!
+          8월 추가 예정!
         </h2>
       </div>
     </div>

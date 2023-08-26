@@ -67,7 +67,7 @@
       nextImage() {
         if (this.step < 5) {
           this.step += 1;
-          this.url = `http://13.114.204.13:8000/showEmojiGif/${
+          this.url = `${this.$store.state.PYTHON_API_URL}/showEmojiGif/${
             this.$store.state.requestId
           }/${this.$store.state.tagName}/${this.emojiList[this.step]}/${
             this.second
@@ -78,7 +78,7 @@
       prevImage() {
         if (this.step > 0) {
           this.step -= 1;
-          this.url = `http://13.114.204.13:8000/showEmojiGif/${
+          this.url = `${this.$store.state.PYTHON_API_URL}/showEmojiGif/${
             this.$store.state.requestId
           }/${this.$store.state.tagName}/${this.emojiList[this.step]}/${
             this.second
@@ -117,7 +117,7 @@
       },
     },
     mounted() {
-      this.url = `http://13.114.204.13:8000/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.$store.state.first}/${this.second}`;
+      this.url = `${this.$store.state.PYTHON_API_URL}/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.$store.state.first}/${this.second}`;
       this.generateQRCode(this.url);
     },
   };

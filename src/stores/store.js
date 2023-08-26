@@ -1,10 +1,16 @@
 import { createStore } from "vuex";
 import axios from "axios";
 
+const PYTHON_API_URL = "http://219.250.128.100:8000";
+const JAVA_API_URL = "http://3.34.178.125:8080";
+
 // Create a new store instance.
 const store = createStore({
   state() {
     return {
+      PYTHON_API_URL: PYTHON_API_URL,
+      JAVA_API_URL: JAVA_API_URL,
+
       ACCESSTOKEN: "",
       USERID: "",
       requestId: "",
@@ -104,17 +110,17 @@ const store = createStore({
     },
   },
   actions: {
-    getTagList(context) {
-      axios
-        .get("http://35.78.234.130:8081/demo/tag")
-        .then((response) => {
-          context.commit("setTagList", response.data);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+    // getTagList(context) {
+    //   axios
+    //     .get("http://35.78.234.130:8081/demo/tag")
+    //     .then((response) => {
+    //       context.commit("setTagList", response.data);
+    //       console.log(response.data);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
     async postImageUpload(context) {
       const formData = {
         userId: context.state.USERID,
@@ -127,7 +133,7 @@ const store = createStore({
       }, new FormData());
       try {
         const response = await axios.post(
-          "http://3.34.178.125:8080/image/upload",
+          `${context.state.JAVA_API_URL}/image/upload`,
           frm,
           {
             headers: {
@@ -145,7 +151,7 @@ const store = createStore({
     },
     async getTagStatus(context) {
       const response = await axios.get(
-        `http://3.34.178.125:8080/tag/status/${context.state.requestId}`
+        `${context.state.JAVA_API_URL}/tag/status/${context.state.requestId}`
       );
       return response.data;
     },
