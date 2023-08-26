@@ -34,7 +34,7 @@
             v-for="(item2, key) in 3"
             :key="key"
             :style="{
-              backgroundImage: `url('${this.$store.state.PYTHON_API_URL}showImg/${this.$store.state.requestId}/${item}/${item2}')`,
+              backgroundImage: `url('${this.$store.state.PYTHON_API_URL}/showImg/${this.$store.state.requestId}/${item}/${item2}')`,
             }"
             @click="clickHander(item, item2)"
           ></div>
