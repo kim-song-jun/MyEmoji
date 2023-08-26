@@ -20,15 +20,9 @@
   <ProfileModal></ProfileModal>
 
   <ProgressBanner v-if="this.$store.state.loading"></ProgressBanner>
+  <!-- <ProgressBanner></ProgressBanner> -->
   <!-- <GoogleLogin :callback="callback"></GoogleLogin> -->
   <RouterView />
   <bottomNav v-if="this.$route.path != '/'"></bottomNav>
 </template>
-
-<style>
-  /* .Main-Content {
-    width: 390px;
-    height: 844px;
-    overflow: auto;
-  } */
-</style>
+<style></style>

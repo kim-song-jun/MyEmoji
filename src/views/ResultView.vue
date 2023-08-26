@@ -44,11 +44,10 @@
         >
           <div
             class="w-24 h-20 rounded-md border-solid border-2 basis-24 shrink-0 bg-contain bg-no-repeat bg-center"
+            :class="setBorderActive(this.emojiList[key2], item)"
             v-for="(item2, key2) in 6"
             :key="key2"
-            :style="{
-              backgroundImage: `url('${this.$store.state.PYTHON_API_URL}/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.emojiList[key2]}/${item}')`,
-            }"
+            :style="setBackgroundImage(item, key2)"
             @click="selectMyEmoji(this.emojiList[key2], item)"
           ></div>
         </div>
@@ -83,17 +82,29 @@
       };
     },
     methods: {
+      setBackgroundImage(item, key2) {
+        if (key2 > 4) return;
+        return {
+          backgroundImage: `url('${this.$store.state.PYTHON_API_URL}/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.emojiList[key2]}/${item}')`,
+        };
+      },
       clickHandler() {
         this.$store.commit("setOpenModal", true);
       },
       selectMyEmoji(f, s) {
+        if (f == undefined || s == undefined) return;
         this.first = f;
         this.second = s;
         console.log(f);
         console.log(s);
         this.$store.commit("setFirst", f);
         this.$store.commit("setSecond", s);
-        console.log(this.$store.state.first);
+      },
+      setBorderActive(f, s) {
+        if (this.first == f && this.second == s) {
+          return "border-2 border-orange-300";
+        }
+        return "";
       },
     },
   };

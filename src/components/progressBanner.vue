@@ -1,4 +1,7 @@
 <template>
+  <div class="fixed inset-0 flex items-center justify-center z-30">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+  </div>
   <div
     id="marketing-banner"
     tabindex="-1"

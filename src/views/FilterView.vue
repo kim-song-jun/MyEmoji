@@ -31,6 +31,7 @@
         <div class="flex flew-row flex-nowrap gap-4 overflow-auto">
           <div
             class="w-36 h-28 rounded-md border-solid border-2 mt-2 basis-36 shrink-0 bg-contain bg-no-repeat bg-center"
+            :class="setBorderActive(item, item2)"
             v-for="(item2, key) in 3"
             :key="key"
             :style="{
@@ -64,14 +65,19 @@
     data() {
       return {
         tagList: ["gogh", "sketch", "cartoon"],
-        myTag: ["태그이름1", "태그이름2", "태그이름3"],
         cur: false,
-        myCurrentTag: "",
+        myCurrentTag: "gogh",
         myCurrentTagNum: 1,
         loading: true,
       };
     },
     methods: {
+      setBorderActive(item, item2) {
+        if (item == this.myCurrentTag && item2 == this.myCurrentTagNum) {
+          return "border-2 border-orange-300";
+        }
+        return "border-gray-200";
+      },
       clickHander(item, item2) {
         console.log(item);
         console.log(item2);
