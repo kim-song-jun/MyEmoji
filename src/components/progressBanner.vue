@@ -5,7 +5,7 @@
   <div
     id="marketing-banner"
     tabindex="-1"
-    class="fixed z-50 flex flex-col md:flex-row justify-between w-[calc(100%-2rem)] p-4 -translate-x-1/2 bg-slate-100 border border-gray-100 rounded-lg shadow-sm lg:max-w-7xl left-1/2 top-6 dark:bg-gray-700 dark:border-gray-600"
+    class="fixed z-50 flex flex-col md:flex-row justify-between w-[calc(100%-4rem)] p-4 -translate-x-1/2 bg-slate-100 border border-gray-100 rounded-lg shadow-sm lg:max-w-7xl left-1/2 top-6 dark:bg-gray-700 dark:border-gray-600"
   >
     <div
       class="flex flex-col items-start mb-3 mr-4 md:items-center md:flex-row md:mb-0"

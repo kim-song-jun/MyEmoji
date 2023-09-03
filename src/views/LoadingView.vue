@@ -26,6 +26,27 @@
     },
     methods: {
       signUp() {
+        const agent = window.navigator.userAgent.toLowerCase();
+        let browser = "";
+        if (agent.indexOf("chrome") != -1) browser = "Chrome";
+        else if (agent.indexOf("safari") != -1) browser = "Safari";
+        else if (agent.indexOf("firefox") != -1) browser = "Firefox";
+        else if (agent.indexOf("opera") != -1) browser = "Opera";
+        else if (agent.indexOf("whale") != -1) browser = "Whale";
+        else if (agent.indexOf("edg") != -1) browser = "Edge";
+        else browser = "IE";
+
+        if (browser != "Chrome") {
+          alert("Chrome 이외의 브라우저는 지원하지 않습니다.");
+          this.$store.commit("setUserId", "114763554871731061100");
+          this.$store.commit(
+            "setAccessToken",
+            "ya29.a0AfB_byCTYnedXVvVfHQFj6ZFtjfhNU5Cg9kbu8l-p2J2vbeNmKTVdVuM_irFgv6PkinYoBI9jRU8rJPFDyUcL3D6iBQQGAcFpJA-PlbavYYApmN3z5rM3hXQgT3xdM6waZmuCehqdgwJTrpMQem-UnNP_vhgQxsrWl_V5loaCgYKAc4SARMSFQHsvYlsbE-n846VOiBLPGNtka2pzQ0174"
+          );
+          this.$router.push("/banner");
+          return;
+        }
+
         const url =
           "https://accounts.google.com/o/oauth2/auth?client_id=229700534077-ha2l7ee5fnpp7jv4tinbsd40dqij7qe8.apps.googleusercontent.com&redirect_uri=http://ec2-3-34-178-125.ap-northeast-2.compute.amazonaws.com:8080/login/oauth2/code/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
         window.location.href = url;

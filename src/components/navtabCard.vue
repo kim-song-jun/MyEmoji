@@ -256,7 +256,7 @@
         <h2
           class="my-4 text-2xl text-center font-extrabold tracking-tight text-blue-600 dark:text-white"
         >
-          8월 추가 예정!
+          12월 추가 예정!
         </h2>
       </div>
     </div>

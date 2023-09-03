@@ -12,7 +12,9 @@
           프로젝트 기획, 아키텍처 설계, 프로젝트 일정관리, 기술 스택 선정
         </h3>
         <p class="my-4 text-sm">
-          "프로젝트 규모 설정과 진행 일정을 관리하였습니다. 팀원이 개발을 할때 서로가 서로에게 병목이 되거나 코드충돌을 일으키지 않도록 프로젝트를 구성하였고 팀원들 중간에서 서로의 원활한 의사소통을 도왔습니다."
+          "프로젝트 규모 설정과 진행 일정을 관리하였습니다. 팀원이 개발을 할때
+          서로가 서로에게 병목이 되거나 코드충돌을 일으키지 않도록 프로젝트를
+          구성하였고 팀원들 중간에서 서로의 원활한 의사소통을 도왔습니다."
         </p>
       </blockquote>
       <figcaption class="flex items-center justify-center space-x-3">
@@ -23,7 +25,11 @@
         />
         <div class="space-y-0.5 font-medium dark:text-white text-left">
           <button
-            @click="redirect('https://catkin-peridot-2ae.notion.site/0e44d8c6b5fb4f5796d74b064c563348')"
+            @click="
+              redirect(
+                'https://catkin-peridot-2ae.notion.site/0e44d8c6b5fb4f5796d74b064c563348'
+              )
+            "
           >
             육마로
           </button>
@@ -55,7 +61,15 @@
           alt="profile picture"
         />
         <div class="space-y-0.5 font-medium dark:text-white text-left">
-          <button @click="redirect('https://gravel-vanilla-047.notion.site/1498217de1c049d9ae2e04246751afd8')">김도건</button>
+          <button
+            @click="
+              redirect(
+                'https://gravel-vanilla-047.notion.site/1498217de1c049d9ae2e04246751afd8'
+              )
+            "
+          >
+            김도건
+          </button>
           <div class="text-sm text-gray-500 dark:text-gray-400">
             백엔드 개발자
           </div>
@@ -69,10 +83,11 @@
         class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400"
       >
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-          Spring-Java을  이용한 백엔드 서버 개발
+          Spring-Java을 이용한 백엔드 서버 개발
         </h3>
         <p class="my-4 text-sm">
-          "웹과 AI 서버에서 들어오는 요청에 대한 에러가 없이 알맞은 데이터를 전달하는 것을 목표로 두었습니다."
+          "웹과 AI 서버에서 들어오는 요청에 대한 에러가 없이 알맞은 데이터를
+          전달하는 것을 목표로 두었습니다."
         </p>
       </blockquote>
       <figcaption class="flex items-center justify-center space-x-3">
@@ -82,7 +97,15 @@
           alt="profile picture"
         />
         <div class="space-y-0.5 font-medium dark:text-white text-left">
-          <button @click="redirect('https://sandy-tadpole-ca0.notion.site/0970a21483e44af29ee96480c2c4ea03')">정의현</button>
+          <button
+            @click="
+              redirect(
+                'https://sandy-tadpole-ca0.notion.site/0970a21483e44af29ee96480c2c4ea03'
+              )
+            "
+          >
+            정의현
+          </button>
           <div class="text-sm text-gray-500 dark:text-gray-400">
             백엔드 개발자
           </div>
@@ -99,7 +122,8 @@
           Vue3.js를 이용한 프론트엔드 개발 및 디자인
         </h3>
         <p class="my-4 text-sm">
-          "Adobe XD를 사용해 웹 디자인을 하고, Vuejs와 tailwind를 사용하여 프론트 웹개발을 진행하였습니다."
+          "Adobe XD를 사용해 웹 디자인을 하고, Vuejs와 tailwind를 사용하여
+          프론트 웹개발을 진행하였습니다."
         </p>
       </blockquote>
       <figcaption class="flex items-center justify-center space-x-3">

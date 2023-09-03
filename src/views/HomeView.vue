@@ -160,6 +160,9 @@
       },
     },
     mounted() {
+      console.log(this.$store.state.ACCESSTOKEN);
+      console.log(this.$store.state.USERID);
+
       const dropzone = document.getElementById("innerInputBox");
       const vm = this;
       dropzone.addEventListener("change", async (event) => {

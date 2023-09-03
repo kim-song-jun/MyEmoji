@@ -21,6 +21,7 @@ const store = createStore({
       imgSrc: "",
 
       openModal: false,
+
       filedata: {},
       tagID: "result",
       myImageNumber: "1",
