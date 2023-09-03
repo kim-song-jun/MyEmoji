@@ -58,7 +58,7 @@
     <!-- next button -->
     <div
       @click="clickHandler()"
-      class="flex flex-row mx-8 font-bold text-2xl items-center justify-center h-16 bg-orange-300 text-white mt-52 rounded-md cursor-pointer"
+      class="mb-4 flex flex-row mx-8 font-bold text-2xl items-center justify-center h-16 bg-orange-300 text-white mt-52 rounded-md cursor-pointer"
     >
       NEXT
     </div>

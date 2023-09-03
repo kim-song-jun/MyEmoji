@@ -17,6 +17,18 @@
 
   export default {
     components: { TopMenu, galleryHistory, UserProfile },
+    mounted() {
+      console.log(this.$store.state.ACCESSTOKEN);
+      console.log(this.$store.state.USERID);
+      if (
+        this.$store.state.ACCESSTOKEN == undefined ||
+        this.$store.state.ACCESSTOKEN == "" ||
+        this.$store.state.USERID == undefined ||
+        this.$store.state.USERID == ""
+      ) {
+        this.$router.push("/");
+      }
+    },
   };
 </script>
 
