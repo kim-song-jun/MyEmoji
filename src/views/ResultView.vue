@@ -56,9 +56,8 @@
 
     <!-- next button -->
     <button
-      data-modal-target="defaultModal"
-      data-modal-toggle="defaultModal"
       class="flex flex-row mx-8 font-bold text-2xl items-center justify-center h-16 bg-orange-300 text-white mt-12 mb-4 rounded-md cursor-pointer"
+      @click="clickHandler()"
     >
       SELECT
     </button>

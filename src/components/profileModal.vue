@@ -1,11 +1,11 @@
 <template>
+  <div class="fixed inset-0 flex items-center justify-center z-30">
+    <div class="absolute inset-0 bg-black opacity-60"></div>
+  </div>
   <!-- Main modal -->
   <div
-    id="defaultModal"
-    data-modal-target="defaultModal"
     tabindex="-1"
-    aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
   >
     <div class="relative w-full max-w-2xl max-h-full">
       <!-- Modal content -->
@@ -18,9 +18,9 @@
             이모티콘 다운로드
           </h3>
           <button
+            @click="closeModal"
             type="button"
             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            data-modal-hide="defaultModal"
           >
             <svg
               aria-hidden="true"
@@ -63,8 +63,8 @@
             Download
           </button>
           <button
-            data-modal-hide="defaultModal"
             type="button"
+            @click="closeModal"
             class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
           >
             Cancel
@@ -89,20 +89,23 @@
       };
     },
     methods: {
+      closeModal() {
+        this.$store.commit("setOpenModal", false);
+      },
       errorImage(event) {
-        console.log(event);
         event.target.src = gif;
         this.generateQRCode(
-          "/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif"
+          "http://219.250.128.100:8000/showEmojiGif/20230826102829/cartoon/yawn/3"
         );
-        this.url = "/image/exmaple/banner/exam_emoji_cartoon_angry_gif_out.gif";
+        this.url =
+          "http://219.250.128.100:8000/showEmojiGif/20230826102829/cartoon/yawn/3";
       },
       async downloadImage(imageUrl) {
         try {
           const response = await axios.get(imageUrl, {
             responseType: "blob",
             headers: {
-              "Content-Type": "image/jpeg",
+              "Content-Type": "image/gif",
             },
           });
           const blob = new Blob([response.data]);
@@ -110,6 +113,7 @@
 
           const link = document.createElement("a");
           link.href = url;
+          // link.download = "banner1.gif";
           link.download = `${this.$store.state.tagName}_${this.$store.state.first}_${this.$store.state.second}.gif`; // 다운로드될 파일의 이름을 설정하세요
           link.click();
 
@@ -129,6 +133,7 @@
     },
     mounted() {
       this.url = `${this.$store.state.PYTHON_API_URL}/showEmojiGif/${this.$store.state.requestId}/${this.$store.state.tagName}/${this.$store.state.first}/${this.$store.state.second}`;
+      // this.url = "http://219.250.128.100:8000/showEmojiGif/20230826102829/cartoon/yawn/3";
       this.generateQRCode(this.url);
     },
   };

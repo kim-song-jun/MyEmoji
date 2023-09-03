@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <ProfileModal></ProfileModal>
+  <ProfileModal v-if="this.$store.state.openModal"></ProfileModal>
 
   <ProgressBanner v-if="this.$store.state.loading"></ProgressBanner>
   <!-- <ProgressBanner></ProgressBanner> -->
