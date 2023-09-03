@@ -56,7 +56,7 @@
 
     <div class="flex items-center flex-shrink-0">
       <button
-        @click="this.$store.commit('setShowBanner', false)"
+        @click="this.$store.commit('setLoading', false)"
         type="button"
         class="absolute top-2.5 right-2.5 md:relative md:top-auto md:right-auto flex-shrink-0 inline-flex justify-center items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white"
       >
